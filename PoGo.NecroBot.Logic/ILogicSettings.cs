@@ -47,7 +47,7 @@ namespace PoGo.NecroBot.Logic
         }
 
         public TransferFilter(int keepMinCp, int keepMinLvl, bool useKeepMinLvl, float keepMinIvPercentage, string keepMinOperator, int keepMinDuplicatePokemon, 
-            List<PokemonMove> moves = null)
+            List<PokemonMove> moves = null, string movesOperator = "or")
         {
             KeepMinCp = keepMinCp;
             KeepMinLvl = keepMinLvl;
@@ -56,6 +56,7 @@ namespace PoGo.NecroBot.Logic
             KeepMinDuplicatePokemon = keepMinDuplicatePokemon;
             KeepMinOperator = keepMinOperator;
             Moves = moves ?? new List<PokemonMove>();
+            MovesOperator = movesOperator;
         }
 
         public int KeepMinCp { get; set; }
@@ -65,10 +66,13 @@ namespace PoGo.NecroBot.Logic
         public int KeepMinDuplicatePokemon { get; set; }
         public List<PokemonMove> Moves { get; set; }
         public string KeepMinOperator { get; set; }
+        public string MovesOperator { get; set; }
     }
 
     public interface ILogicSettings
     {
+        bool UseWebsocket { get; }
+        bool CatchPokemon { get; }
         bool TransferWeakPokemon { get; }
         bool DisableHumanWalking { get; }
         bool AutoUpdate { get; }
@@ -116,6 +120,7 @@ namespace PoGo.NecroBot.Logic
 
         int GetMinStarDustForLevelUp { get; }
         bool UseLuckyEggConstantly { get; }
+        int MaxBerriesToUsePerPokemon { get; }
         bool UseIncenseConstantly { get; }
         int UseBerriesMinCp { get; }
         float UseBerriesMinIv { get; }
@@ -149,17 +154,17 @@ namespace PoGo.NecroBot.Logic
         bool GetSniperInfoFromPokezz { get; }
         bool GetOnlyVerifiedSniperInfoFromPokezz { get; }
         bool UseSnipeLocationServer { get; }
-        bool UseSnipeOnlineLocationServer { get; }
         bool UseTransferIvForSnipe { get; }
         bool SnipeIgnoreUnknownIv { get; }
         int MinDelayBetweenSnipes { get; }
         double SnipingScanOffset { get; }
+        bool SnipePokemonNotInPokedex { get; }
         int TotalAmountOfPokeballsToKeep { get; }
         int TotalAmountOfPotionsToKeep { get; }
         int TotalAmountOfRevivesToKeep { get; }
         int TotalAmountOfBerriesToKeep { get; }
 
-        bool ShowPokeballCountsBeforeRecycle { get; }
+        bool DetailedCountsBeforeRecycling { get; }
         bool VerboseRecycling { get; }
         double RecycleInventoryAtUsagePercentage { get; }
         double EvolveKeptPokemonsAtStorageUsagePercentage { get; }
