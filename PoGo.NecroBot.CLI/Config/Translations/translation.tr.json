@@ -2,19 +2,19 @@
   "TranslationStrings": [
     {
       "Key": "pokeball",
-      "Value": "Pokéball"
+      "Value": "Poké Ball"
     },
     {
       "Key": "greatPokeball",
-      "Value": "Greatball"
+      "Value": "Great Ball"
     },
     {
       "Key": "ultraPokeball",
-      "Value": "Ultraball"
+      "Value": "Ultra Ball"
     },
     {
       "Key": "masterPokeball",
-      "Value": "Masterball"
+      "Value": "Master Ball"
     },
     {
       "Key": "wrongAuthType",
@@ -30,11 +30,11 @@
     },
     {
       "Key": "farmPokestopsNoUsableFound",
-      "Value": "Bu alanda uygun Pokéstop bulunamadı. \"MaxTravelDistanceInMeters\" değeri çok küçük olabilir."
+      "Value": "Bu alanda uygun PokéStop bulunamadı. \"MaxTravelDistanceInMeters\" değeri çok küçük olabilir."
     },
     {
       "Key": "eventFortUsed",
-      "Value": "İsim: {0} XP: {1}, Taşlar: {2}, Eşyalar: {3}, Enlem: {4}, Boylam: {5}"
+      "Value": "İsim: {0} Tecrübe: {1}, Taşlar: {2}, Eşyalar: {3}, Enlem: {4}, Boylam: {5}"
     },
     {
       "Key": "eventFortFailed",
@@ -42,13 +42,13 @@
     },
     {
       "Key": "eventFortTargeted",
-      "Value": "{1}m mesafedeki \"{0}\" Pokéstopuna {2} saniye sonra varılacak."
+      "Value": "{1}m mesafedeki \"{0}\" PokéStop'una {2} saniye sonra varılacak."
     },
     {
       "Key": "eventProfileLogin",
       "Value": "Kullanıcı Adı: {0}"
     },
-	{
+    {
       "Key": "eventUsedIncense",
       "Value": "Tütsü(Incense) kullanıldı. Kalan süre: {0}"
     },
@@ -58,7 +58,7 @@
     },
     {
       "Key": "eventPokemonEvolvedSuccess",
-      "Value": "{0} | {1}XP kazanıldı."
+      "Value": "{0} | {1} Tecrübe kazanıldı."
     },
     {
       "Key": "eventPokemonEvolvedFailed",
@@ -74,7 +74,7 @@
     },
     {
       "Key": "eventPokemonCaptureSuccess",
-      "Value": "({0}) | ({1}) {2} Lvl: {3} CP: ({4}/{5}) IV: {6}% | Yakalama Şansı: {7}% | Mesafe: {8}m | {9} kullanıldı ({10} tane kaldı) | {11}XP kazanıldı | {12} | Enlem: {13} Boylam: {14}"
+      "Value": "({0}) | ({1}) {2} Lvl: {3} CP: ({4}/{5}) IV: {6}% | Yakalama Şansı: {7}% | Mesafe: {8}m | {9} kullanıldı ({10} tane kaldı) | {11}Tecrübe kazanıldı | {12} | Enlem: {13} Boylam: {14}"
     },
     {
       "Key": "eventPokemonCaptureFailed",
@@ -82,7 +82,7 @@
     },
     {
       "Key": "eventNoPokeballs",
-      "Value": "Pokéball kalmadı. - Kaçırılan Pokémon: {0} (CP: {1})"
+      "Value": "Poké topu kalmadı. - Kaçırılan Pokémon: {0} (CP: {1})"
     },
     {
       "Key": "waitingForMorePokemonToEvolve",
@@ -134,7 +134,7 @@
     },
     {
       "Key": "commonWordUnknown",
-      "Value": "tanımsız"
+      "Value": "?"
     },
     {
       "Key": "displayHighestsCpHeader",
@@ -240,7 +240,7 @@
       "Key": "accessTokenExpired",
       "Value": "PTC oturumu sonlandı. Tekrar oturum açılıyor..."
     },
-	{
+    {
       "Key": "invalidResponse",
       "Value": "Niantic sunucuları tepki vermiyor."
     },
@@ -322,11 +322,11 @@
     },
     {
       "Key": "zeroPokeballInv",
-      "Value": "Pokéball kalmadı. Daha fazla Pokémon yakalanamaz!"
+      "Value": "Poké topu kalmadı. Daha fazla Pokémon yakalanamaz!"
     },
     {
       "Key": "currentPokeballInv",
-      "Value": "Pokéball: {0} | Greatball: {1} | Ultraball: {2} | Masterball: {3}"
+      "Value": "Poké Ball: {0} | Great Ball: {1} | Ultra Ball: {2} | Master Ball: {3}"
     },
     {
       "Key": "currentPotionInv",
@@ -430,7 +430,7 @@
     },
     {
       "Key": "profileStatsTemplateString",
-      "Value": "----- SEVİYE {0} | {1} ----- \n Tecrübe(XP): {2}/{3} \n Yakalanan Pokémon: {4} \n Görülen Pokémon: {5} \n Ziyaret Edilen Pokéstop: {6} \n Çatlatılan Yumurta(Egg): {7} \n Geliştirilen(Evolve) Pokémon: {8} \n Pokédex Kayıtları: {9} \n Yürünen Mesafe: {10}km  \n Pokémonlar: {11}/{12}"
+      "Value": "----- SEVİYE {0} | {1} ----- \n Tecrübe(XP): {2}/{3} \n Yakalanan Pokémon: {4} \n Karşılaşılan Pokémon: {5} \n Ziyaret Edilen Pokéstop: {6} \n Çatlatılan Yumurta(Egg): {7} \n Geliştirilen(Evolve) Pokémon: {8} \n Pokédex Kayıtları: {9} \n Yürünen Mesafe: {10}km  \n Pokémonlar: {11}/{12}"
     },
     {
       "Key": "showPokeTemplate",
@@ -438,7 +438,7 @@
     },
     {
       "Key": "helpTemplate",
-      "Value": "Komutlar: \n \n /top <cp/iv> <sayı> - En iyi Pokémonları gösterir. \n /all <cp/iv> - Bütün Pokémonları gösterir. \n /profile - Profili gösterir. \n /loc - Konumu gösterir. \n /items - Eşyaları gösterir. \n /status - Bot durumunu gösterir."
+      "Value": "Komutlar: \n \n /top <cp/iv> <sayı> - En iyi Pokémonları gösterir. \n /all <cp/iv> - Bütün Pokémonları gösterir. \n /profile - Profili gösterir. \n /loc - Konumu gösterir. \n /items - Eşyaları gösterir. \n /status - Bot durumunu gösterir. \n /pokedex - Pokédex'i gösterir."
     },
     {
       "Key": "statsXpTemplateString",
@@ -482,19 +482,19 @@
     },
     {
       "Key": "noPokemonToSnipe",
-      "Value": "Bu konumda nişan alınacak Pokémon bulunamadı!"
+      "Value": "Bu konumda nişan alınacak Pokémon bulunamadı! Süresi dolmuş olabilir."
     },
     {
       "Key": "notEnoughPokeballsToSnipe",
-      "Value": "Keskin nişancılık için yeterli Pokéball yok! ({0}/{1})"
+      "Value": "Keskin nişancılık için yeterli Poké topu yok! ({0}/{1})"
     },
     {
       "Key": "displayHighestMOVE1Header",
-      "Value": "SALDIRI1"
+      "Value": "SALDIRI-1"
     },
     {
       "Key": "displayHighestMOVE2Header",
-      "Value": "SALDIRI2"
+      "Value": "SALDIRI-2"
     },
     {
       "Key": "displayHighestCandy",
@@ -538,11 +538,11 @@
     },
     {
       "Key": "amountPkmSeenCaught",
-      "Value": "Görülen Pokémon Sayısı: {0}/151, Yakalanan Pokémon Sayısı: {1}/151"
+      "Value": "Karşılaşılan Pokémon Sayısı: {0}/151, Yakalanan Pokémon Sayısı: {1}/151"
     },
     {
       "Key": "pkmPotentialEvolveCount",
-      "Value": "[Geliştirme] Potansiyel geliştirme(evolve) sayısı: {0}"
+      "Value": "Geliştirilebilecek(evolve) Pokémon sayısı: {0}"
     },
     {
       "Key": "pkmNotEnoughRessources",
@@ -644,16 +644,28 @@
       "Key": "firstStartSetupDefaultLongConfirm",
       "Value": "Boylam(longitude) onaylandı: {0}"
     },
-    {
-      "Key": "SoftBanBypassed",
-      "Value": "Başarıyla açıldı!"
-    },
-    {
+	{
       "Key": "firstStartSetupCompleted",
       "Value": "### KURULUM TAMAMLANDI ###"
+    },
+    {
+      "Key": "PokedexCatchedTelegram",
+      "Value": "--- Pokédex Yakalandı --- \n"
+    },
+    {
+      "Key": "PokedexPokemonCatchedTelegram",
+      "Value": "#{0} İsim: {1} | Yakalanan: {2} | Karşılaşılan: {3} \n"
+    },
+    {
+      "Key": "PokedexNeededTelegram",
+      "Value": "--- Pokédex Gerekiyor --- \n"
+    },
+    {
+      "Key": "PokedexPokemonNeededTelegram",
+      "Value": "#{0} İsim: {1} \n"
     }
   ],
-	"PokemonStrings": [
+  "PokemonStrings": [
     {
       "Key": "bulbasaur",
       "Value": "Bulbasaur"

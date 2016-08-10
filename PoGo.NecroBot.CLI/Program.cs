@@ -2,7 +2,11 @@
 
 using System;
 using System.Globalization;
+using System.IO;
+using System.Net;
+using System.Reflection;
 using System.Threading;
+using PoGo.NecroBot.CLI.Resources;
 using PoGo.NecroBot.Logic;
 using PoGo.NecroBot.Logic.Common;
 using PoGo.NecroBot.Logic.Event;
@@ -10,11 +14,6 @@ using PoGo.NecroBot.Logic.Logging;
 using PoGo.NecroBot.Logic.State;
 using PoGo.NecroBot.Logic.Tasks;
 using PoGo.NecroBot.Logic.Utils;
-using System.IO;
-using System.Net;
-using PoGo.NecroBot.CLI.Resources;
-using System.Reflection;
-using PoGo.NecroBot.CLI.Plugin;
 
 #endregion
 
@@ -29,8 +28,8 @@ namespace PoGo.NecroBot.CLI
         private static void Main(string[] args)
         {
             string strCulture = Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
-            var culture = CultureInfo.CreateSpecificCulture(strCulture);
 
+            var culture = CultureInfo.CreateSpecificCulture( "en" );
             CultureInfo.DefaultThreadCurrentCulture = culture;
             Thread.CurrentThread.CurrentCulture = culture;
 
@@ -45,8 +44,7 @@ namespace PoGo.NecroBot.CLI
             if (args.Length > 0)
                 subPath = args[0];
 
-            var logger = new ConsoleLogger(LogLevel.LevelUp);
-            Logger.SetLogger(logger, subPath);
+            Logger.SetLogger(new ConsoleLogger(LogLevel.LevelUp), subPath);
 
             if (CheckKillSwitch())
                 return;
@@ -58,19 +56,19 @@ namespace PoGo.NecroBot.CLI
             GlobalSettings settings;
             Boolean boolNeedsSetup = false;
 
-            if (File.Exists(configFile))
+            if( File.Exists( configFile ) )
             {
-                if (!VersionCheckState.IsLatest())
-                    settings = GlobalSettings.Load(subPath, true);
-                else
-                    settings = GlobalSettings.Load(subPath);
+                // Load the settings from the config file
+                // If the current program is not the latest version, ensure we skip saving the file after loading
+                // This is to prevent saving the file with new options at their default values so we can check for differences
+                settings = GlobalSettings.Load( subPath, !VersionCheckState.IsLatest() );
             }
             else
             {
                 settings = new GlobalSettings();
                 settings.ProfilePath = profilePath;
                 settings.ProfileConfigPath = profileConfigPath;
-                settings.GeneralConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "config");
+                settings.GeneralConfigPath = Path.Combine( Directory.GetCurrentDirectory(), "config" );
                 settings.TranslationLanguageCode = strCulture;
 
                 boolNeedsSetup = true;
@@ -87,7 +85,7 @@ namespace PoGo.NecroBot.CLI
                     settings.DefaultLatitude = lat;
                     settings.DefaultLongitude = lng;
                 }
-                catch (Exception e) { }
+                catch (Exception) { }
             }
 
 
@@ -163,16 +161,7 @@ namespace PoGo.NecroBot.CLI
                 var websocket = new WebSocketInterface(settings.WebSocketPort, session);
                 session.EventDispatcher.EventReceived += evt => websocket.Listen(evt, session);
             }
-
-            var plugins = new PluginManager(new PluginInitializerInfo()
-            {
-                Logger = logger,
-                Session = session,
-                Settings = settings,
-                Statistics = stats
-            });
-            plugins.InitPlugins();
-
+            
             ProgressBar.fill(70);
 
             machine.SetFailureState(new LoginState());
@@ -188,7 +177,7 @@ namespace PoGo.NecroBot.CLI
             ProgressBar.fill(100);
 
             machine.AsyncStart(new VersionCheckState(), session);
-
+            
             if (settings.UseTelegramAPI)
             {
                 session.Telegram = new Logic.Service.TelegramService(settings.TelegramAPIKey, session);
@@ -202,6 +191,8 @@ namespace PoGo.NecroBot.CLI
                 Console.Clear();
             }
             catch (IOException) { }
+
+            settings.checkProxy();
 
             QuitEvent.WaitOne();
         }
